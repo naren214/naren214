@@ -1,16 +1,75 @@
-## Hi there 👋
+<h1 align="center">Hi 👋, I'm Naren K S</h1>
 
-<!--
-**naren214/naren214** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<h3 align="center">
+Computer Science Engineering Student at VIT Chennai
+</h3>
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🚀 About Me
+
+🎓 Computer Science Engineering (Core) Student at VIT Chennai
+
+🌱 Currently learning
+
+- Java
+- Python
+- Git & GitHub
+- Data Structures & Algorithms
+- Web Development
+
+💻 Passionate about building projects and learning new technologies.
+
+---
+
+## 🛠 Languages and Tools
+
+- Java
+- Python
+- HTML
+- CSS
+- JavaScript
+- Git
+- GitHub
+
+---
+
+## 📂 Featured Projects
+
+### DecodeLabs Projects
+
+Internship projects completed during DecodeLabs internship.
+
+---
+
+### Portfolio Website
+
+Personal portfolio website showcasing my work.
+
+---
+
+### College Projects
+
+Projects built during my CSE journey.
+
+---
+
+## 🎯 Goals for 2026
+
+- Learn Full Stack Development
+- Master Java
+- Solve 300+ DSA Problems
+- Contribute to Open Source
+- Build 10+ Major Projects
+
+---
+
+## 📫 Connect With Me
+
+LinkedIn
+
+www.linkedin.com/in/naren-k-s-3bb09137a
+
+---
+
+⭐ Thanks for visiting my profile!
