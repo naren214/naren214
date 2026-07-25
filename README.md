@@ -1,75 +1,39 @@
 <h1 align="center">Hi 👋, I'm Naren K S</h1>
+<h3 align="center">Computer Science Engineering Student | Frontend | Python | DSA</h3>
 
-<h3 align="center">
-Computer Science Engineering Student at VIT Chennai
-</h3>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4f46e5,100:06b6d4&height=180&section=header&text=Welcome%20to%20my%20profile&fontSize=36&fontColor=ffffff" />
+</p>
 
----
+## About Me
+- 🎓 CSE Core student at VIT Chennai
+- 💻 Learning Java, Python, Git & GitHub, DSA, and Web Development
+- 🚀 Building projects and learning in public
+- 🤝 Open to collaborating on technical projects
 
-## 🚀 About Me
-
-🎓 Computer Science Engineering (Core) Student at VIT Chennai
-
-🌱 Currently learning
-
+## Currently Learning
 - Java
 - Python
 - Git & GitHub
 - Data Structures & Algorithms
 - Web Development
 
-💻 Passionate about building projects and learning new technologies.
+## Skills
+- **Languages:** Java, Python, C, C++
+- **Frontend:** HTML, CSS, JavaScript
+- **Tools:** Git, GitHub, VS Code
 
----
+## Projects
+- Portfolio Website
+- College projects
+- Personal coding projects
 
-## 🛠 Languages and Tools
+## Connect with Me
+- Email: narenkavi3@gmail.com
+- LinkedIn: [Naren K S](https://www.linkedin.com/in/naren-k-s-3bb09137a/)
 
-- Java
-- Python
-- HTML
-- CSS
-- JavaScript
-- Git
-- GitHub
-
----
-
-## 📂 Featured Projects
-
-### DecodeLabs Projects
-
-Internship projects completed during DecodeLabs internship.
-
----
-
-### Portfolio Website
-
-Personal portfolio website showcasing my work.
-
----
-
-### College Projects
-
-Projects built during my CSE journey.
-
----
-
-## 🎯 Goals for 2026
-
-- Learn Full Stack Development
-- Master Java
-- Solve 300+ DSA Problems
-- Contribute to Open Source
-- Build 10+ Major Projects
-
----
-
-## 📫 Connect With Me
-
-LinkedIn
-
-www.linkedin.com/in/naren-k-s-3bb09137a
-
----
-
-⭐ Thanks for visiting my profile!
+## GitHub Stats
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=naren214&show_icons=true&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=naren214&layout=compact&theme=tokyonight" />
+</p>
