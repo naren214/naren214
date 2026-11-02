@@ -1,0 +1,22 @@
+{
+  "identity": {
+    "name": "Naren K S",
+    "handle": "naren214",
+    "academic": "Second-year Computer Science student at VIT Chennai",
+    "intro": "I build across applied AI and the web, from browser instruments to full-stack applications. I like understanding how the data, application logic, and interface fit together."
+  },
+  "projects": [
+    {"id":"unheard","number":"01","name":"UNHEARD","eyebrow":"INTERACTION / SOUND","brief":"Draw a gesture. Hear an instrument.","detail":"A browser studio mapping movement to pitch, timing and stereo position. Six synthesized presets. Compositions saved locally.","tags":["React","Web Audio","Canvas"],"repo":"https://github.com/naren214/BuildHours"},
+    {"id":"gdg","number":"02","name":"Recruitment Portal","eyebrow":"FULL-STACK / WORKFLOWS","brief":"Applications with rules enforced on the server.","detail":"Extended an existing portal with student applications and coordinator review. Firestore transactions enforce limits and prevent duplicates.","tags":["Next.js","Better Auth","Firestore"],"repo":"https://github.com/naren214/gdg_rec_portal"},
+    {"id":"drone","number":"03","name":"Drone Mapper","eyebrow":"APPLIED AI / PROTOTYPE","brief":"A quicker first look at disaster imagery.","detail":"A hackathon prototype for AI hazard summaries, severity estimates and image mapping. Missing GPS uses demo coordinates.","tags":["Python","Streamlit","Google GenAI"],"repo":"https://github.com/naren214/rapid-response-dronemapper"},
+    {"id":"termvision","number":"04","name":"TermVision","eyebrow":"PYTHON / TERMINAL","brief":"Video, translated into a terminal's language.","detail":"Full-color ASCII playback with resize-aware output and frame skipping. Optional audio playback on Windows.","tags":["Python","OpenCV","NumPy"],"repo":"https://github.com/naren214/TermVision"}
+  ],
+  "focus":{"title":"LLM reliability","brief":"Exploring hallucination detection with HaluEval, TF-IDF and classification models.","detail":"Current interests: model evaluation and the engineering behind AI-powered applications."},
+  "toolkit":[
+    {"label":"LANGUAGES","items":["Python","Java","C","JavaScript","SQL"]},
+    {"label":"APPLICATIONS","items":["React","Next.js","Express","Streamlit"]},
+    {"label":"ML + DATA","items":["pandas","scikit-learn","XGBoost","OpenCV"]},
+    {"label":"STORAGE + TOOLS","items":["Firestore","SQLite","Git","GitHub"]}
+  ],
+  "contact":{"portfolio":"https://naren214.github.io/","linkedin":"https://www.linkedin.com/in/naren-k-s-3bb09137a/","email":"narenkavi3@gmail.com","github":"https://github.com/naren214"}
+}
