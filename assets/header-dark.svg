@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="368" viewBox="0 0 1280 368" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Naren K S</title>
+  <desc id="desc">Software, applied AI, and the web. An abstract layered system in mint on graphite.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#1C292B" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="700" y1="184" x2="1280" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101819" stop-opacity="0"/><stop offset="1" stop-color="#101819"/>
+    </linearGradient>
+    <linearGradient id="tile" x1="940" y1="70" x2="940" y2="266" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A3330"/><stop offset="1" stop-color="#101819"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1278" height="366" rx="16" fill="#101819" stroke="#2A3B3C" stroke-width="2"/>
+  <path d="M704 2H1263Q1278 2 1278 17V351Q1278 366 1263 366H704Z" fill="url(#grid)"/>
+  <path d="M704 2H1263Q1278 2 1278 17V351Q1278 366 1263 366H704Z" fill="url(#fade)"/>
+  <path d="M64 62H96" stroke="#8CF5C8" stroke-width="3"/>
+  <text x="112" y="68" fill="#A4BBB5" font-family="Consolas, monospace" font-size="18" letter-spacing="2">NAREN214 / ENGINEERING FOLIO</text>
+  <text x="58" y="190" fill="#F0F5F2" font-family="Segoe UI, Arial, sans-serif" font-size="102" font-weight="700" letter-spacing="-5">Naren K S<tspan fill="#8CF5C8">.</tspan></text>
+  <text x="64" y="238" fill="#B4C7C1" font-family="Segoe UI, Arial, sans-serif" font-size="28" letter-spacing=".2">Software. Applied AI. The web.</text>
+  <text x="64" y="318" fill="#A4BBB5" font-family="Consolas, monospace" font-size="17" letter-spacing="2">VIT CHENNAI</text>
+  <circle cx="218" cy="312" r="2.5" fill="#607A72"/>
+  <text x="240" y="318" fill="#A4BBB5" font-family="Consolas, monospace" font-size="17" letter-spacing="2">INDIA</text>
+  <g stroke-linejoin="round">
+    <path d="M750 221L963 120L1176 221L963 322Z" fill="#101819" stroke="#34524A" stroke-width="1.5"/>
+    <path d="M750 177L963 76L1176 177L963 278Z" fill="#13221F" stroke="#45695E" stroke-width="1.5"/>
+    <path d="M750 133L963 32L1176 133L963 234Z" fill="url(#tile)" stroke="#8CF5C8" stroke-width="2"/>
+    <path d="M803 133L963 57L1123 133L963 209Z" stroke="#355C4C"/>
+    <path d="M857 133L963 83L1069 133L963 183Z" stroke="#426D5A"/>
+    <path d="M910 133L963 108L1016 133L963 158Z" fill="#8CF5C8" fill-opacity=".12" stroke="#8CF5C8"/>
+    <path d="M750 133V221M1176 133V221M963 234V322" stroke="#45695E" stroke-width="1.5"/>
+    <path d="M963 133L1069 183V227L1123 253" stroke="#8CF5C8" stroke-width="2.5"/>
+  </g>
+  <circle cx="963" cy="133" r="6" fill="#8CF5C8"/>
+  <circle cx="1123" cy="253" r="4" fill="#8CF5C8"/>
+  <circle cx="750" cy="133" r="4" fill="#8CF5C8"/>
+  <path d="M1210 304V328H1186" stroke="#607A72" stroke-width="1.5"/>
+</svg>

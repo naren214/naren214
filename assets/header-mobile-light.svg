@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Naren K S</title>
+  <desc id="desc">Software, applied AI, and the web. VIT Chennai, India.</desc>
+  <rect x="1" y="1" width="638" height="298" rx="16" fill="#F2F6F3" stroke="#D1DFD7" stroke-width="2"/>
+  <path d="M32 44H56" stroke="#137548" stroke-width="3"/>
+  <text x="72" y="51" fill="#49675A" font-family="Consolas, monospace" font-size="22" letter-spacing="2">NAREN214</text>
+  <text x="28" y="142" fill="#152D24" font-family="Segoe UI, Arial, sans-serif" font-size="80" font-weight="700" letter-spacing="-4">Naren K S<tspan fill="#137548">.</tspan></text>
+  <text x="32" y="191" fill="#405F50" font-family="Segoe UI, Arial, sans-serif" font-size="28">Software. Applied AI. The web.</text>
+  <text x="32" y="258" fill="#49675A" font-family="Consolas, monospace" font-size="22">VIT CHENNAI / INDIA</text>
+  <g stroke-linejoin="round">
+    <path d="M474 59L540 27L606 59V87L540 119L474 87Z" fill="#E7F0E9" stroke="#779E87" stroke-width="1.5"/>
+    <path d="M474 59L540 27L606 59L540 91Z" fill="#DAEDE1" stroke="#137548" stroke-width="2"/>
+    <path d="M507 59L540 43L573 59L540 75Z" stroke="#137548"/>
+    <path d="M540 91V119" stroke="#779E87" stroke-width="1.5"/>
+  </g>
+  <circle cx="540" cy="59" r="4" fill="#137548"/>
+  <path d="M606 236V262H580" stroke="#739180" stroke-width="1.5"/>
+</svg>
