@@ -15,6 +15,8 @@ The two open-source typefaces from the Google Fonts repository are bundled in `s
 
 Every panel has a separate mobile composition selected through `<picture>`. Each image has a title, description and meaningful README alternative text. The native introduction, contact links and expandable text index remain usable independently of the illustrations.
 
+The hero and project illustrations use CSS keyframes inside their SVG files. The ribbon sways, audio meters follow a moving playhead, signals travel through the portal diagram, a scan passes over the map, and the terminal rows brighten in sequence. These loops run when the browser reports no reduced-motion preference. The panels render in their static form when reduced motion is enabled.
+
 ## Publication
 
 GitHub displays this repository's `README.md` on the `naren214` profile. Rebuild after source changes, inspect desktop and mobile rendering, then commit the source and generated files together. There is no scheduled rebuild: this profile contains curated work and current interests rather than activity counters.

@@ -104,21 +104,45 @@ def cross(x, y, size=5, color=QUIET):
     return line(x-size, y, x+size, y, color) + line(x, y-size, x, y+size, color)
 
 
-def svg(name, w, h, content, title, desc='', bg=BG):
+def svg(name, w, h, content, title, desc='', bg=BG, motion=''):
     ASSETS.mkdir(exist_ok=True)
+    style = f'<style>@media (prefers-reduced-motion: no-preference) {{\n{motion}\n}}</style>\n' if motion else ''
     out = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">{html.escape(title)}</title><desc id="desc">{html.escape(desc)}</desc>
-{rect(0, 0, w, h, bg)}
+{style}{rect(0, 0, w, h, bg)}
 {content}
 </svg>
 '''
     (ASSETS / f'{name}.svg').write_text(out, encoding='utf-8', newline='\n')
 
 
+SIGNAL_MOTION = '''
+.signal-trace { animation: signal-flow 5.2s linear infinite; }
+@keyframes signal-flow { to { stroke-dashoffset: -100; } }
+'''
+
+
+def signal_trace(d, width=3, delay=0):
+    return (f'<path class="signal-trace" d="{d}" pathLength="100" '
+            f'stroke="{CYAN}" stroke-width="{width}" stroke-linecap="round" '
+            f'stroke-dasharray="11 89" opacity=".8" style="animation-delay:{delay}s"/>')
+
+
+HERO_MOTION = SIGNAL_MOTION + '''
+.wire-sculpture { animation: wire-sway 9s ease-in-out infinite; }
+@keyframes wire-sway {
+    0%, 50%, 100% { transform: rotate(0deg); }
+    25% { transform: translateY(-9px) rotate(11deg) scale(1.035); }
+    75% { transform: translateY(6px) rotate(-9deg) scale(.97); }
+}
+'''
+
+
 def orbit(cx, cy, scale=1):
     # Project a family of three-dimensional ribbon curves. Every point is
     # computed locally; this is an abstract illustration, not a data plot.
     out = []
+    trace = ''
     for j in range(25):
         t = j / 24
         points = []
@@ -134,7 +158,10 @@ def orbit(cx, cy, scale=1):
             points.append((cx + px*scale, cy + py*scale))
         d = 'M' + 'L'.join(f'{x:.2f} {y:.2f}' for x,y in points)
         out.append(path(d, BLUE if j%4 else CYAN, .8*scale, opacity=.26+.45*t))
-    return ''.join(out)
+        if j == 12:
+            trace = signal_trace(d, width=2.1*scale)
+    return (f'<g class="wire-sculpture" style="transform-origin:{cx}px {cy}px">'
+            + ''.join(out) + trace + '</g>')
 
 
 def hero(mobile=False):
@@ -162,7 +189,8 @@ def hero(mobile=False):
         c += line(40,429,920,429)
         c += text('NAREN K S',40,456,14,QUIET,'mono',1)
         c += text('VIT CHENNAI / COMPUTER SCIENCE',582,456,14,QUIET,'mono',.4)
-    svg('hero-mobile' if mobile else 'hero',w,h,c,'Naren K S — Software, applied AI, and the web','An original technical folio with oversized typography and a generative wire sculpture.')
+    svg('hero-mobile' if mobile else 'hero',w,h,c,'Naren K S — Software, applied AI, and the web',
+        'An original technical folio with oversized typography and a generative wire sculpture.', motion=HERO_MOTION)
 
 
 def section(kind, mobile=False):
@@ -176,6 +204,22 @@ def section(kind, mobile=False):
         c += text(caption,100,89,12,QUIET,'mono',.8)
     c += line(32 if mobile else 40,108,w-32 if mobile else w-40,108)
     svg(f'section-{kind}'+('-mobile' if mobile else ''),w,124,c,title)
+
+
+AUDIO_MOTION = '''
+.audio-meter { transform-box: fill-box; transform-origin: center bottom; animation: audio-level 2.4s ease-in-out infinite; }
+.audio-playhead { animation: audio-sweep 5.4s linear infinite; }
+@keyframes audio-level {
+    0%, 100% { transform: scaleY(.48); }
+    38% { transform: scaleY(1.25); }
+    72% { transform: scaleY(.72); }
+}
+@keyframes audio-sweep {
+    0% { transform: translateX(0); opacity: 0; }
+    8%, 92% { opacity: .82; }
+    100% { transform: translateX(244px); opacity: 0; }
+}
+'''
 
 
 def art_unheard():
@@ -195,7 +239,11 @@ def art_unheard():
         c+=circle(x,y,5,BG,BLUE,1.5)+circle(x,y,2,BLUE)
     for i in range(40):
         ht=5+abs(math.sin(i*.38)*math.cos(i*.12))*22
-        c+=rect(25+i*6,235-ht,2.5,ht,BLUE,opacity=.35+.6*i/40)
+        delay = -(i*.11 + .21*math.sin(i*.4))
+        c += (f'<g class="audio-meter" style="animation-delay:{delay:.2f}s">'
+              + rect(25+i*6,235-ht,2.5,ht,BLUE,opacity=.35+.6*i/40) + '</g>')
+    c += ('<g class="audio-playhead" opacity="0">'
+          + line(23,37,23,188,BLUE,1.4) + circle(23,37,3,CYAN) + '</g>')
     c+=circle(277,19,9,BLUE)+circle(277,19,3,BG)
     return c
 
@@ -208,6 +256,8 @@ def art_gdg():
         c += rect(21,y+10,77 if y!=101 else 48,3,LINE,r=1)
     c += rect(20,151,54,17,BLUE,r=3)
     c += path('M121 107H154V55H179M154 107H179M154 107V159H179',BLUE,1.5)
+    for route, delay in [('M121 107H154V55H179',0), ('M121 107H179',-1.7), ('M121 107H154V159H179',-3.4)]:
+        c += signal_trace(route, delay=delay)
     for y in (36,88,140):
         c+=rect(179,y,106,38,BG,LINE,6)
         c+=circle(195,y+19,5,'none',BLUE)
@@ -217,6 +267,21 @@ def art_gdg():
     c+=circle(154,107,5,BLUE)
     c+=text('VALIDATE / COMMIT',39,221,15,QUIET,'mono',.5)
     return c
+
+
+MAP_MOTION = '''
+.map-scan { animation: map-sweep 6.8s ease-in-out infinite; }
+.map-ping { transform-box: fill-box; transform-origin: center; animation: map-pulse 3.4s ease-out infinite; }
+@keyframes map-sweep {
+    0% { transform: translateY(0); opacity: 0; }
+    14%, 85% { opacity: .82; }
+    100% { transform: translateY(187px); opacity: 0; }
+}
+@keyframes map-pulse {
+    0% { transform: scale(.68); opacity: .7; }
+    80%, 100% { transform: scale(1.6); opacity: 0; }
+}
+'''
 
 
 def art_drone():
@@ -232,8 +297,26 @@ def art_drone():
     for x,y in ((44,192),(120,175),(206,137)):
         c+=circle(x,y,4,BLUE)
     c+=circle(160,113,23,'none',BLUE,1.2)+cross(160,113,31,BLUE)+circle(160,113,6,CYAN)
+    c += '<g class="map-ping" opacity="0">' + circle(160,113,23,'none',BLUE,1.5) + '</g>'
+    c += (f'<defs><linearGradient id="scan-band" x1="0" y1="0" x2="0" y2="1">'
+          f'<stop stop-color="{BLUE}" stop-opacity="0"/><stop offset="1" stop-color="{BLUE}" stop-opacity=".24"/>'
+          '</linearGradient></defs>')
+    c += ('<g class="map-scan" opacity="0">' + rect(14,24,266,16,'url(#scan-band)')
+          + line(14,40,280,40,CYAN,1.5) + '</g>')
     c+=rect(199,180,73,40,PANEL,LINE,4)+text('EXIF',209,205,15,BLUE,'mono')
     return c
+
+
+TERMINAL_MOTION = '''
+.terminal-row { animation: terminal-refresh 3.8s ease-in-out infinite; }
+.terminal-cursor { animation: cursor-breathe 2.2s ease-in-out infinite; }
+@keyframes terminal-refresh {
+    0%, 100% { opacity: .58; }
+    27% { opacity: 1; }
+    63% { opacity: .72; }
+}
+@keyframes cursor-breathe { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+'''
 
 
 def art_terminal():
@@ -242,19 +325,27 @@ def art_terminal():
         c+=circle(x,38,3,QUIET)
     ramp='.:+*#'
     for r in range(12):
+        row = []
         for col in range(28):
             xx=(col-13.5)/13.5
             yy=(r-5.5)/5.5
             val=math.sin(xx*3+yy*2)+math.cos(yy*4-xx*2)
             if abs(xx)*.8+abs(yy)*.3 < .9:
                 ch=ramp[int(abs(val)*2.3)%5]
-                c+=text(ch,28+col*8.4,78+r*10.5,9.5,BLUE if val>0 else QUIET,'mono',opacity=.5+.2*abs(val))
-    c+=path('M30 215L38 220L30 225M46 225H66',CYAN,1.5)
+                row.append(text(ch,28+col*8.4,78+r*10.5,9.5,BLUE if val>0 else QUIET,'mono',opacity=.5+.2*abs(val)))
+        c += f'<g class="terminal-row" style="animation-delay:{-.24*r:.2f}s">' + ''.join(row) + '</g>'
+    c += path('M30 215L38 220L30 225',CYAN,1.5)
+    c += '<g class="terminal-cursor">' + line(46,225,66,225,CYAN,1.5) + '</g>'
     c+=text('FRAME 024 / RGB',102,220,11,QUIET,'mono')
     return c
 
 
-ART={'unheard':art_unheard,'gdg':art_gdg,'drone':art_drone,'termvision':art_terminal}
+ART = {
+    'unheard': (art_unheard, AUDIO_MOTION),
+    'gdg': (art_gdg, SIGNAL_MOTION),
+    'drone': (art_drone, MAP_MOTION),
+    'termvision': (art_terminal, TERMINAL_MOTION),
+}
 
 
 def tags(items,x,y,size=14,pad=12,gap=9):
@@ -267,6 +358,7 @@ def tags(items,x,y,size=14,pad=12,gap=9):
 
 
 def project(p,mobile=False):
+    artwork, motion = ART[p['id']]
     if mobile:
         w,h=640,640
         c=line(32,1,608,1)+text(p['number']+' / '+p['eyebrow'],32,41,18,BLUE,'mono',.3)
@@ -276,7 +368,7 @@ def project(p,mobile=False):
         c+=paragraph(p['detail'],32,231,564,28,37,MUTED)
         for i,tag in enumerate(p['tags']):
             c+=tags([tag],32,438+i*49,21,12)
-        c+=f'<g transform="translate(322 390) scale(.95)">{ART[p["id"]]()}</g>'
+        c+=f'<g transform="translate(322 390) scale(.95)">{artwork()}</g>'
     else:
         w,h=960,320
         c=line(40,1,920,1)+text(p['number']+' / '+p['eyebrow'],40,42,14,BLUE,'mono',.5)
@@ -285,9 +377,9 @@ def project(p,mobile=False):
         c+=text(p['brief'],40,155,20,INK)
         c+=paragraph(p['detail'],40,195,538,18,27,MUTED)
         c+=tags(p['tags'],40,286,13,10)
-        c+=f'<g transform="translate(624 59) scale(.96)">{ART[p["id"]]()}</g>'
+        c+=f'<g transform="translate(624 59) scale(.96)">{artwork()}</g>'
     desc=f'{p["brief"]} {p["detail"]} Built with {", ".join(p["tags"])}. Open repository.'
-    svg('project-'+p['id']+('-mobile' if mobile else ''),w,h,c,p['name'],desc,PANEL)
+    svg('project-'+p['id']+('-mobile' if mobile else ''),w,h,c,p['name'],desc,PANEL,motion)
 
 
 def focus(mobile=False):
@@ -344,9 +436,10 @@ def contact(mobile=False):
 
 
 def picture(name,alt,href=None):
+    revision = '?v=motion1' if name == 'hero' or name.startswith('project-') else ''
     block=f'''<picture>
-  <source media="(max-width: 600px)" srcset="assets/{name}-mobile.svg">
-  <img src="assets/{name}.svg" width="100%" alt="{html.escape(alt,quote=True)}">
+  <source media="(max-width: 600px)" srcset="assets/{name}-mobile.svg{revision}">
+  <img src="assets/{name}.svg{revision}" width="100%" alt="{html.escape(alt,quote=True)}">
 </picture>'''
     return f'<a href="{href}">\n{block}\n</a>' if href else block
 
