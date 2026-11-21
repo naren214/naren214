@@ -41,7 +41,7 @@ I'm **Naren K S**, a second-year Computer Science student at **VIT Chennai**. I 
 <a href="https://github.com/naren214/rapid-response-dronemapper">
 <picture>
   <source media="(max-width: 600px)" srcset="assets/project-drone-mobile.svg?v=motion1">
-  <img src="assets/project-drone.svg?v=motion1" width="100%" alt="Drone Mapper — A quicker first look at disaster imagery. A hackathon prototype for AI hazard summaries, severity estimates and image mapping. Missing GPS uses demo coordinates.">
+  <img src="assets/project-drone.svg?v=motion1" width="100%" alt="Drone Mapper — A quicker first look at disaster imagery. A hackathon prototype for AI hazard summaries, severity estimates and mapping images with GPS metadata.">
 </picture>
 </a>
 
@@ -55,6 +55,8 @@ I'm **Naren K S**, a second-year Computer Science student at **VIT Chennai**. I 
 </a>
 
 
+
+[Sunspoke Coast](https://github.com/naren214/sunspoke-coast) · [Play in a desktop browser ↗](https://suncoast.coolbream8192.chatgpt.site/)
 
 [Explore all repositories ↗](https://github.com/naren214?tab=repositories)
 
@@ -112,7 +114,7 @@ Next.js · Better Auth · Firestore
 
 ### [Drone Mapper](https://github.com/naren214/rapid-response-dronemapper)
 
-A quicker first look at disaster imagery. A hackathon prototype for AI hazard summaries, severity estimates and image mapping. Missing GPS uses demo coordinates.
+A quicker first look at disaster imagery. A hackathon prototype for AI hazard summaries, severity estimates and mapping images with GPS metadata.
 
 Python · Streamlit · Google GenAI
 

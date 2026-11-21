@@ -450,6 +450,7 @@ def readme():
     out += [f"I'm **{P['identity']['name']}**, a second-year Computer Science student at **VIT Chennai**. {P['identity']['intro']}",f'[Portfolio ↗]({c["portfolio"]}) &nbsp; / &nbsp; [LinkedIn ↗]({c["linkedin"]}) &nbsp; / &nbsp; [Email ↗](mailto:{c["email"]})','<br>',picture('section-work','01 — Selected work'),'']
     for p in P['projects']:
         out += [picture('project-'+p['id'],p['name']+' — '+p['brief']+' '+p['detail'],p['repo']),'']
+    out += ['[Sunspoke Coast](https://github.com/naren214/sunspoke-coast) · [Play in a desktop browser ↗](https://suncoast.coolbream8192.chatgpt.site/)']
     out += ['[Explore all repositories ↗](https://github.com/naren214?tab=repositories)','<br>',picture('section-focus','02 — Focus and toolkit'),picture('focus','Current focus: '+P['focus']['brief']),picture('toolkit','Working toolkit: '+'; '.join(g['label']+': '+', '.join(g['items']) for g in P['toolkit'])),'<br>',picture('contact','Start a conversation — '+c['email'],'mailto:'+c['email']),f'[Portfolio]({c["portfolio"]}) &nbsp; / &nbsp; [LinkedIn]({c["linkedin"]}) &nbsp; / &nbsp; [Email](mailto:{c["email"]})','<br>','<details>','<summary>Project index &amp; text overview</summary>','']
     for p in P['projects']:
         out += [f'### [{p["name"]}]({p["repo"]})',p['brief']+' '+p['detail'],' · '.join(p['tags']),'']
